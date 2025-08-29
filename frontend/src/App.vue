@@ -10,7 +10,9 @@
 </script>
 
 <style scoped>
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    ss { 
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 </style>
