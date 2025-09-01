@@ -52,6 +52,12 @@
     // ref()로 만든 변수는 reactive 상태가 됩니다.
     // 화면에서 {{ count }}를 사용하면, count.value가 바뀔 때 자동으로 업데이트돼요.
 
+    // interface User {
+    //     id: number;
+    //     name: string;
+    //     tickets: number; // 응모권 보유 개수
+    // }
+
     interface Poll  {
         id: number;
         title: string;
@@ -105,6 +111,10 @@
             voteCounts: {},
             endTime: new Date(newEndTime.value),
         });
+
+        // 응모권 지급
+        // currentUser.value.tickets += 1;
+
         newTitle.value = '';
         newOptions.value = '';
         showCreateForm.value = false;
@@ -113,9 +123,14 @@
     function vote(pollId: number, option: string) {
         const poll = polls.value.find(p => p.id === pollId);
         if(!poll) return;
-        //참여자 이름은 'User1' 으로 고정
-        poll.votes.push('User1');
+        
+        poll.votes.push('User1'); //참여자 이름은 'User1' 으로 고정
         poll.voteCounts[option] = (poll.voteCounts[option] || 0) + 1;
+
+        // 예: 3회 참여 시 응모권 지급
+        // if(poll.votes.length % 3 === 0) {
+        //     currentUser.value.tickets += 1;
+        // }
     }
 
     function getRemainingTime(endTime: Date) {
