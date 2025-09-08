@@ -2,9 +2,9 @@
     <div class="login-container">
         <h1>로그인</h1>
         <form @submit.prevent="handleLogin">
-            <input type="text" placeholder="Username" v-model="username" />
-            <input type="password" placeholder="Password" v-model="password" />
-            <button type="submit">Login</button>            
+            <input type="text" placeholder="아이디를 입력해주세요." v-model="userId" />
+            <input type="password" placeholder="비밀번호를 입력해주세요." v-model="password" />
+            <button type="submit">로그인</button>            
         </form>
     </div>
 </template>
@@ -16,18 +16,18 @@
     //useRoute : 현재 라우트(route) 정보를 가져오기 위해 사용 
     // -> 주로 현재 URL이 어떤지 확인하거나, 동적 세그먼트(id)나 쿼리 값을 가져올 때 사용
 
-    const username = ref('');
+    const userId = ref('');
     const password = ref('');
     const router = useRouter();
 
     const handleLogin = () => {
-        if(!username.value || !password.value){
+        if(!userId.value || !password.value){
             alert("아이디와 비밀번호를 입력해주세요.");
             return;
         }
 
         //실제 api 호출 필요
-        console.log("로그인 시도: ", {username: username.value, password: password.value});
+        console.log("로그인 시도: ", {userId: userId.value, password: password.value});
 
         //로그인 성공 시 이동
         alert("로그인 성공!");
