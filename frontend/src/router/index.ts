@@ -5,6 +5,7 @@ import Events from '../views/Events.vue';
 import Board from '../views/Board.vue';
 import BoardDetail from '../views/BoardDetail.vue';
 import Login from '../views/Login.vue';
+import Signup from '../views/Signup.vue';
 
 const routes = [
     { path : "/", component: Home },
@@ -13,6 +14,7 @@ const routes = [
     { path: '/board', component: Board },
     { path: '/board/:id', component: BoardDetail, props: true},
     { path: '/login', component: Login },
+    { path: '/signup', component: Signup},
 ]
 
 const router = createRouter({
