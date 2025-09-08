@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Polls from '../views/Polls.vue';
 import Events from '../views/Events.vue';
 import Board from '../views/Board.vue';
+import BoardDetail from '../views/BoardDetail.vue';
 import Login from '../views/Login.vue';
 
 const routes = [
@@ -10,6 +11,7 @@ const routes = [
     { path: '/polls', component: Polls },
     { path: '/events', component: Events },
     { path: '/board', component: Board },
+    { path: '/board/:id', component: BoardDetail, props: true},
     { path: '/login', component: Login },
 ]
 
