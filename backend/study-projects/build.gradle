@@ -7,6 +7,11 @@ war {
     from('src/main/webapp') {
         into ''
     }
+    // 컴파일된 클래스 포함
+    from(sourceSets.main.output) {
+        into 'WEB-INF/classes'
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 group = 'org.example'
@@ -19,6 +24,15 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // Servlet API (provided because Tomcat already provides it at runtime)
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.32'
+    annotationProcessor 'org.projectlombok:lombok:1.18.32'
+
+    implementation 'com.google.code.gson:gson:2.10.1'
 }
 
 test {
